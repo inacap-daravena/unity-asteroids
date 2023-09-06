@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 88490576}
   - component: {fileID: 88490575}
   - component: {fileID: 88490577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Jugador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,6 +251,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadGiro: 1
   velocidadImpulso: 5
+  ubicacionDisparo: {x: 0, y: 0.5}
+  balaPrefab: {fileID: 5773130818789652635, guid: e830a8e97b321ec48bfcbdb392d40b65, type: 3}
 --- !u!58 &88490577
 CircleCollider2D:
   m_ObjectHideFlags: 0

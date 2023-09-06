@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     public float velocidadGiro = 1.0f;
     public float velocidadImpulso = 1.0f;
+    public Vector2 ubicacionDisparo;
+    public Bullet balaPrefab;
 
     private Rigidbody2D rb;
     private bool impulsando;
@@ -39,6 +41,8 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("Jump")) impulsando = true;
         else impulsando = false;
+
+        if (Input.GetButtonDown("Fire1")) Disparar();
     }
 
     // Update: es ejecutada según la frecuencia del motor físico.
@@ -47,5 +51,11 @@ public class PlayerController : MonoBehaviour
         if (velocidadGiro != 0f) rb.AddTorque(velocidadGiro * direccion);
 
         if (impulsando) rb.AddForce(this.transform.up * velocidadImpulso);
+    }
+
+    void Disparar()
+    {
+        Bullet bala = Instantiate(this.balaPrefab, this.transform.position, this.transform.rotation);
+        bala.Proyectar(this.transform.up);
     }
 }
